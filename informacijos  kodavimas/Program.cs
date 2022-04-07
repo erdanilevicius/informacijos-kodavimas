@@ -4,18 +4,12 @@ using System.IO;
 
 namespace crypt
 {
-
     class Program
     {
         static void Main(string[] args)
         {
             int i = 0;
-            var key = "b14ca5898a4e4133bbce2ea2315a1916";
-
-            //Console.WriteLine("Please enter a secret key for the symmetric algorithm.");  
-            //var key = Console.ReadLine();  
-
-
+            var key = "b14ca5898a4e4133bbce2ea2315a1916";  
             while (i != 1) {
                 Console.WriteLine("Pasirinkite ka norite daryti:");
                 Console.WriteLine("1 - uzsifruoti teksta");
@@ -84,9 +78,9 @@ namespace crypt
                             string sifruotas = Console.ReadLine();
                             Console.Clear();
                             var desifruojamas = Kodavimas.AESDesifravimas(key, sifruotas);
-                            Console.WriteLine($"decrypted string = {desifruojamas}");
+                            Console.WriteLine($"Desifruotas tekstas = {desifruojamas}");
                             Console.ReadKey();
-                            File.WriteAllText("Desifruotas.txt", desifruojamas);
+                            File.WriteAllText("AESDesifruotas.txt", desifruojamas);
                             j = 1;
 
                         }
@@ -99,7 +93,7 @@ namespace crypt
                             var tekstas = Console.ReadLine();
                             Console.Clear();
                             var sifruoju = Kodavimas.SDesifravimas(key, tekstas);
-                            Console.WriteLine($"uzsifruotas tekstas = {sifruoju}");
+                            Console.WriteLine($"Desifruotas tekstas = {sifruoju}");
                             j = 1;
 
                         }
